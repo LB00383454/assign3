@@ -81,6 +81,7 @@ void draw(){
                }
              }
            }
+          
        // if ((int)clickCount == (int) 16 - bombCount){
 //gameState=GAME_WIN;}
 
