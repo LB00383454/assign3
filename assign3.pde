@@ -67,8 +67,22 @@ void draw(){
           break;
     case GAME_RUN:
           //---------------- put you code here ----
-        if ((int)clickCount == (int) 16 - bombCount){
-        gameState=GAME_WIN;}
+        for (int row=0; row < nSlot; row++){
+             for (int col=0; col < nSlot; col++){      
+               if(slot[col][row] == SLOT_DEAD){
+                 gameState = GAME_LOSE;
+               }else if(clickCount == totalSlots - bombCount){
+                 gameState = GAME_WIN;
+                 if(slot[col][row]==SLOT_BOMB){
+                   showSlot(col,row,SLOT_BOMB);
+                 }else if(slot[col][row]==SLOT_FLAG_BOMB){
+                   showSlot(col,row,SLOT_FLAG_BOMB);
+                 }
+               }
+             }
+           }
+       // if ((int)clickCount == (int) 16 - bombCount){
+//gameState=GAME_WIN;}
 
           // -----------------------------------
           break;
